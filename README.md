@@ -15,20 +15,16 @@ A modern React-based web application for Thirty Six Studios. This project uses V
 
 ```
 src/
-  ├── App.jsx            # Root component
-  ├── Canvas.jsx         # Canvas rendering logic
-  ├── canvasImages.js    # Image asset definitions
-  ├── data.js            # Data helpers and content
-  ├── index.css          # Global styles
-  ├── main.jsx           # Application entry point
-  └── Components/
-      └── Cursor.jsx     # Custom cursor component
-
-vite.config.js
-package.json
-eslint.config.js
-index.html
+  App.jsx          page composition
+  content.js       site copy (services, concept projects, process, contact)
+  data.js          canvas layouts · canvasImages.js  pepper frame URLs
+  context/         SiteProvider: Locomotive Scroll, flood + menu state
+  lib/             GSAP setup, frame cache, camera-pepper state
+  components/      SequenceCanvas, CameraPepper, FloodLayer, Header, Menu, Cursor
+  sections/        Hero, Manifesto, Services, Work, Process, Playground, Contact, Footer
 ```
+
+See `UPGRADE_DOCUMENTATION.md` for how everything works.
 
 ## 🛠 Installation
 
@@ -70,7 +66,7 @@ index.html
 
 ## ✅ Usage
 
-The application renders a canvas component that displays interactive graphics defined in `canvasImages.js` and controlled via `data.js`. A custom cursor is provided in `Components/Cursor.jsx`.
+Click the giant "Thirtysixstudios" name to flood the page red and bring the pepper canvases to life. One pepper then follows you down the page. In the Playground you can turn it by hand.
 
 ## 📝 Contributing
 
