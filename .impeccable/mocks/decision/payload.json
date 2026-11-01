@@ -1,0 +1,49 @@
+{
+  "title": "Choose the page structure",
+  "question": "The world stays fixed: white→red flood, pepper canvases, the giant wordmark. Pick how the full studio page is composed around it.",
+  "options": [
+    {
+      "id": "pepper-camera",
+      "kind": "assigned",
+      "kicker": "THE ROLL",
+      "label": "The pepper is the camera",
+      "lineage": "Single-subject scroll films",
+      "thesis": "One hero pepper canvas pins and travels the whole page, and each section is a set it moves through.",
+      "palette": ["#fd2c2a", "#ffffff", "#111111", "#ff6a3d"],
+      "materials": ["canvas image sequences", "pinned ScrollTrigger stages", "oversized Helvetica-grotesk type"],
+      "viewport": "Original hero: the wordmark across the bottom and intro copy top-left. After the flood, the pepper swarm detaches one pepper that rides into section two.",
+      "risk": "The travelling pepper has to be choreographed per breakpoint, and on mobile it shrinks to a corner companion.",
+      "html": ".impeccable/mocks/decision/pepper-camera.html",
+      "comp": ".impeccable/mocks/decision/pepper-camera.png"
+    },
+    {
+      "id": "wordmark-architecture",
+      "kind": "dealt",
+      "label": "Wordmark as architecture",
+      "lineage": "Swiss poster type-as-structure",
+      "thesis": "THIRTY / SIX / STUDIOS split into three acts. Each word is a section's giant structural masthead, with canvases masked inside the letters.",
+      "palette": ["#fd2c2a", "#ffffff", "#111111"],
+      "materials": ["type masking (canvas inside letterforms)", "clip-path wipes", "horizontal work reel"],
+      "viewport": "Original hero unchanged. Scrolling splits the wordmark: 'Thirty' anchors the studio intro, 'Six' the services and process, 'Studios' the work and contact.",
+      "risk": "The type does a lot of work, so section copy has to stay disciplined or the page turns into a type specimen.",
+      "html": ".impeccable/mocks/decision/wordmark-architecture.html",
+      "comp": ".impeccable/mocks/decision/wordmark-architecture.png"
+    },
+    {
+      "id": "two-sided",
+      "kind": "dealt",
+      "label": "Two-sided page",
+      "lineage": "Reversible print / flip-book",
+      "thesis": "The flood becomes a site-wide mode: white is the studio talking, red is the studio playing, and every section has both faces.",
+      "palette": ["#ffffff", "#fd2c2a", "#111111"],
+      "materials": ["circular clip-path flood", "dual-state sections", "canvas reveals per section"],
+      "viewport": "Original hero. The flood control stays reachable in the header, so any section can be flipped to its red, canvas-alive face.",
+      "risk": "Two versions of every section doubles the content work, and the red face has to give more than a colour swap.",
+      "html": ".impeccable/mocks/decision/two-sided.html",
+      "comp": ".impeccable/mocks/decision/two-sided.png"
+    }
+  ],
+  "reroll": true,
+  "buildPath": {"value": "code", "toggle": true},
+  "steer": true
+}

@@ -1,0 +1,164 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-02T00:00:00Z",
+  "title": "Design System: Thirtysixstudios",
+  "extensions": {
+    "colorMeta": {
+      "studio-red": {
+        "role": "primary",
+        "displayName": "Studio Red",
+        "canonical": "#fd2c2a",
+        "tonalRamp": ["#4a0807", "#7a0f0d", "#ab1714", "#d8201d", "#fd2c2a", "#fe6a68", "#fea5a4", "#ffdcdb"]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#ffffff",
+        "tonalRamp": ["#262626", "#474747", "#6b6b6b", "#919191", "#b5b5b5", "#d6d6d6", "#efefef", "#ffffff"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#000000",
+        "tonalRamp": ["#000000", "#1a1a1a", "#333333", "#4d4d4d", "#808080", "#b3b3b3", "#e0e0e0", "#f5f5f5"]
+      },
+      "paper-muted": {
+        "role": "neutral",
+        "displayName": "Paper Muted",
+        "canonical": "rgb(255 255 255 / 0.62)",
+        "tonalRamp": ["rgb(255 255 255 / 0.62)"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Wordmark", "purpose": "The Thirtysixstudios wordmark in the hero and footer, font-size fitted by script to the container width." },
+      "headline": { "displayName": "Section Title", "purpose": "Section headings; the same tight recipe scales service names, project titles, step titles and menu links." },
+      "title": { "displayName": "Title", "purpose": "Principle titles." },
+      "lead": { "displayName": "Lead", "purpose": "Section intros, project summaries, step bodies, menu and footer links." },
+      "body": { "displayName": "Body", "purpose": "Running copy." },
+      "label": { "displayName": "Label", "purpose": "Column headings, step numbers, readouts, cursor label and pill buttons; tabular numerals." },
+      "tag": { "displayName": "Tag", "purpose": "Discipline and service tags inside pills." }
+    },
+    "shadows": [
+      { "name": "rail-outline", "value": "inset 0 0 0 1px #000000", "purpose": "Drawn outline on the work reel progress rail. A ring, not elevation." },
+      { "name": "rail-fill-halo", "value": "0 0 0 1px #ffffff", "purpose": "Paper halo on the ink progress fill so it reads on ink panels." },
+      { "name": "cursor-link-ring", "value": "inset 0 0 0 1.5px currentColor", "purpose": "Cursor disc becomes a ring over links." },
+      { "name": "selected-swatch-ring", "value": "0 0 0 3px var(--ground), 0 0 0 4.5px #000000", "purpose": "Offset ring on the selected playground pepper swatch." }
+    ],
+    "motion": [
+      { "name": "arrive", "value": "expo.out (GSAP default, duration 1)", "purpose": "Arrivals: wordmark and heading character rises, swarm peppers, menu lines, service row ink fill." },
+      { "name": "scene", "value": "expo.inOut", "purpose": "Scene changes: the flood (1.25s open, 1.1s drain) and the menu circle (0.9s open, 0.7s close)." },
+      { "name": "scrub", "value": "none (linear, ScrollTrigger scrub)", "purpose": "Anything tied to the scrollbar: work reel, manifesto, camera pepper progress." },
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "CSS counterpart of expo.out for hover transitions: link underline, menu icon, contact fill, step focus (0.5-0.6s)." },
+      { "name": "color-swap", "value": "0.3s default ease", "purpose": "Background and colour swaps on pills, cursor and labels." },
+      { "name": "camera-path", "value": "power2.inOut", "purpose": "The camera pepper's travel between anchors." },
+      { "name": "reduced-motion", "value": "0.35s linear crossfade", "purpose": "Replaces circle reveals; pins and pulses are removed." }
+    ],
+    "breakpoints": [
+      { "name": "mobile", "value": "max-width: 639px" },
+      { "name": "narrow", "value": "max-width: 767px" },
+      { "name": "tablet", "value": "max-width: 899px" },
+      { "name": "wide", "value": "min-width: 900px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Pill Button",
+      "kind": "button",
+      "refersTo": "pill-button",
+      "description": "The standard control: a currentColor outline pill that fills with ink on hover.",
+      "html": "<button type=\"button\" class=\"ds-pill\">Pause</button>",
+      "css": ".ds-pill { display: inline-flex; align-items: center; gap: 0.6rem; min-height: 2.75rem; padding: 0.55rem 1.25rem; border: 1px solid currentColor; border-radius: 999px; background: transparent; color: #000; font-family: 'Hanken Grotesk Variable', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 0.875rem; cursor: pointer; transition: background-color 0.3s, color 0.3s; } .ds-pill:hover { background: #000; color: #fff; } .ds-pill:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }"
+    },
+    {
+      "name": "Menu Flood Toggle",
+      "kind": "button",
+      "refersTo": "menu-flood-toggle",
+      "description": "Pill on the ink menu with a red dot; floods red on hover.",
+      "html": "<div class=\"ds-ink\"><button type=\"button\" class=\"ds-flood\"><span class=\"ds-flood__dot\"></span>Flood the page red</button></div>",
+      "css": ".ds-ink { background: #000; color: #fff; padding: 2rem; } .ds-flood { display: inline-flex; align-items: center; gap: 0.75rem; min-height: 2.75rem; padding: 0.5rem 1.25rem 0.5rem 0.6rem; border: 1px solid currentColor; border-radius: 999px; background: transparent; color: inherit; font-family: 'Hanken Grotesk Variable', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 0.875rem; cursor: pointer; transition: background-color 0.3s, color 0.3s; } .ds-flood__dot { width: 1.5rem; height: 1.5rem; border-radius: 50%; background: #fd2c2a; transition: background-color 0.3s; } .ds-flood:hover { background: #fd2c2a; border-color: #fd2c2a; color: #000; } .ds-flood:hover .ds-flood__dot { background: #000; } .ds-flood:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }"
+    },
+    {
+      "name": "Contact Button",
+      "kind": "button",
+      "refersTo": "contact-cta",
+      "description": "Solid ink circle whose paper fill grows from the centre on hover.",
+      "html": "<a href=\"#\" class=\"ds-cta\"><span class=\"ds-cta__fill\"></span><span>Write to us</span></a>",
+      "css": ".ds-cta { position: relative; display: grid; place-items: center; width: 10rem; aspect-ratio: 1; border-radius: 50%; background: #000; color: #fff; overflow: hidden; isolation: isolate; font-family: 'Hanken Grotesk Variable', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 500; text-decoration: none; transition: color 0.3s; } .ds-cta__fill { position: absolute; inset: 0; z-index: -1; border-radius: 50%; background: #fff; transform: scale(0); transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); } .ds-cta:hover, .ds-cta:focus-visible { color: #000; } .ds-cta:hover .ds-cta__fill, .ds-cta:focus-visible .ds-cta__fill { transform: scale(1); } .ds-cta:focus-visible { outline: 2px solid #000; outline-offset: 4px; }"
+    },
+    {
+      "name": "Tag",
+      "kind": "chip",
+      "refersTo": "tag",
+      "description": "Non-interactive hairline pill for disciplines and service tags; inherits its ground's ink.",
+      "html": "<ul class=\"ds-tags\"><li>Art direction</li><li>Identity</li><li>Campaign design</li></ul>",
+      "css": ".ds-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; list-style: none; margin: 0; padding: 1rem; background: #fd2c2a; color: #000; font-family: 'Hanken Grotesk Variable', 'Helvetica Neue', Helvetica, Arial, sans-serif; } .ds-tags li { padding: 0.2rem 0.75rem; border: 1px solid currentColor; border-radius: 999px; font-size: 0.8125rem; }"
+    },
+    {
+      "name": "Header Navigation",
+      "kind": "nav",
+      "refersTo": "header",
+      "description": "Thin fixed row: logo left, section links with drawn underlines, Menu control right.",
+      "html": "<header class=\"ds-header\"><a class=\"ds-header__logo\" href=\"#\">Thirtysixstudios</a><nav><ul class=\"ds-header__nav\"><li><a class=\"ds-link\" href=\"#\">Studio</a></li><li><a class=\"ds-link\" href=\"#\">Services</a></li><li><a class=\"ds-link\" href=\"#\">Work</a></li><li><a class=\"ds-link\" href=\"#\">Contact</a></li></ul></nav><button class=\"ds-header__menu\" type=\"button\">Menu <span class=\"ds-header__icon\"></span></button></header>",
+      "css": ".ds-header { display: flex; align-items: center; gap: 2rem; height: 4rem; padding-inline: 2rem; background: #fff; color: #000; font-family: 'Hanken Grotesk Variable', 'Helvetica Neue', Helvetica, Arial, sans-serif; } .ds-header a { color: inherit; text-decoration: none; } .ds-header__logo { font-size: 1.0625rem; font-weight: 500; letter-spacing: -0.02em; } .ds-header nav { margin-left: auto; } .ds-header__nav { display: flex; gap: 2rem; list-style: none; margin: 0; padding: 0; } .ds-link { background-image: linear-gradient(currentColor, currentColor); background-repeat: no-repeat; background-position: 100% 100%; background-size: 0% 1px; padding-bottom: 0.1em; transition: background-size 0.6s cubic-bezier(0.16, 1, 0.3, 1); } .ds-link:hover, .ds-link:focus-visible { background-position: 0 100%; background-size: 100% 1px; } .ds-header__menu { display: inline-flex; align-items: center; gap: 0.75rem; min-height: 2.75rem; padding-inline: 0.25rem; border: 0; background: none; color: inherit; font: inherit; font-size: 1rem; cursor: pointer; } .ds-header__icon { position: relative; width: 1.375rem; height: 0.625rem; border-top: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; box-sizing: border-box; } .ds-header__menu:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }"
+    },
+    {
+      "name": "Service Row",
+      "kind": "custom",
+      "refersTo": "service-row-active",
+      "description": "Hairline row with a giant name; ink fills it as a circle from the pointer's entry point (static approximation fills from the centre).",
+      "html": "<div class=\"ds-service\"><span class=\"ds-service__fill\"></span><h3 class=\"ds-service__title\">Animation</h3><p class=\"ds-service__body\">2D and 3D motion, product films and the short loops that make people stop scrolling.</p></div>",
+      "css": ".ds-service { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 18rem); align-items: center; gap: 1.5rem 3rem; padding: 2rem 1.25rem; border-top: 1px solid currentColor; border-bottom: 1px solid currentColor; background: #fd2c2a; color: #000; font-family: 'Hanken Grotesk Variable', 'Helvetica Neue', Helvetica, Arial, sans-serif; overflow: hidden; transition: color 0.35s; } .ds-service > *:not(.ds-service__fill) { position: relative; z-index: 1; } .ds-service__fill { position: absolute; inset: 0; background: #000; clip-path: circle(0px at 50% 50%); transition: clip-path 0.7s cubic-bezier(0.16, 1, 0.3, 1); } .ds-service:hover { color: #fff; } .ds-service:hover .ds-service__fill { clip-path: circle(150% at 50% 50%); } .ds-service__title { margin: 0; font-size: 4rem; font-weight: 500; line-height: 0.95; letter-spacing: -0.045em; } .ds-service__body { margin: 0; }"
+    },
+    {
+      "name": "Section Title",
+      "kind": "custom",
+      "refersTo": "headline",
+      "description": "The tight display recipe used for every section heading.",
+      "html": "<h2 class=\"ds-title\">What we do</h2>",
+      "css": ".ds-title { margin: 0; font-family: 'Hanken Grotesk Variable', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: clamp(2.75rem, 1.4rem + 5.6vw, 7rem); font-weight: 500; line-height: 0.92; letter-spacing: -0.04em; color: #000; text-wrap: balance; }"
+    },
+    {
+      "name": "Progress Rail",
+      "kind": "custom",
+      "refersTo": "work-progress",
+      "description": "Paper pill rail with an inset ink outline and a solid ink fill, legible on red, ink and paper.",
+      "html": "<div class=\"ds-rail-wrap\"><div class=\"ds-rail\"><div class=\"ds-rail__fill\"></div></div></div>",
+      "css": ".ds-rail-wrap { padding: 2rem; background: #fd2c2a; } .ds-rail { position: relative; height: 0.625rem; border-radius: 999px; background: #fff; box-shadow: inset 0 0 0 1px #000; } .ds-rail__fill { position: absolute; inset: 0; border-radius: inherit; background: #000; box-shadow: 0 0 0 1px #fff; transform: scaleX(0.4); transform-origin: 0 50%; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Pepper Is the Camera",
+    "overview": "The system is a three-ink poster: white paper, studio red, pure black, and nothing else. The material is not illustration or UI chrome but real pepper image sequences played on canvas; one pepper travels between sections as a fixed camera and every layout leaves it a square anchor to land in. Type is a single variable grotesk doing every job, from a wordmark fitted edge to edge across the hero to 13px tags, set tight and heavy-ish (500) at display sizes and plain at reading sizes.\n\nChange happens in circles. The page floods from white to red as a circle growing from the click point, the menu opens as an ink circle from the menu button, a service row fills with ink as a circle from where the pointer crossed its edge, and the contact button fills from its centre. Everything else is held still or scrubbed to the scrollbar. The density is editorial and generous: huge headings, wide section padding, hairline rules, and a lot of open ground for the peppers to move through.\n\nThe ground itself is a token. The page background follows `--ground`, which is paper by default and red once flooded, so every surface that sits on the ground recolours with the flood without any per-component logic. Ink and red panels are the only other grounds.",
+    "keyCharacteristics": [
+      "Three colours: paper, studio red, pure black ink. Red is a ground, not an accent sprinkle.",
+      "One grotesk family (Hanken Grotesk Variable) at weight 400 and 500 only.",
+      "Circles from the point of action are the transition shape for surfaces.",
+      "Hairline (1px currentColor) rules and outlines; no fills, cards or shadows for structure.",
+      "Real pepper sequences on canvas are the only imagery.",
+      "Motion: expo.out arrivals, expo.inOut scene changes, linear scrub for scroll."
+    ],
+    "rules": [
+      { "name": "The Three Inks Rule", "body": "Paper, studio red and pure black are the whole palette. No greys, tints, gradients of colour or second accent; the only derived value is paper at 62% for secondary text on ink.", "section": "colors" },
+      { "name": "The Ground Token Rule", "body": "Anything that sits on the page ground paints with `var(--ground)`, never a literal paper or red, so the flood recolours it for free. Flood-aware state is styled through `html.is-flooded`, not JavaScript.", "section": "colors" },
+      { "name": "The One Family Rule", "body": "Every size, from the wordmark to a 13px tag, is Hanken Grotesk Variable at 400 or 500. No second face, no italics, no uppercase tracking.", "section": "typography" },
+      { "name": "The Tight Display Rule", "body": "Anything set above about 2.25rem gets negative tracking (-0.02em to -0.055em) and a line-height below 1.1; mask reveals on split lines carry a descender allowance (0.12-0.14em) so the y is never clipped.", "section": "typography" },
+      { "name": "The No Lift Rule", "body": "Nothing floats. A surface is separated by a ground change or a 1px currentColor rule, never by a shadow.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do paint grounds with `var(--ground)` and let `html.is-flooded` swap paper for studio red.",
+      "Do grow surface changes as a circle (`clip-path: circle()` or a scaled round fill) from the point of the click, hover entry or button.",
+      "Do use expo.out for arrivals, expo.inOut for scene changes and a linear scrub for anything tied to the scroll; the CSS equivalent is `cubic-bezier(0.16, 1, 0.3, 1)`.",
+      "Do reserve a square anchor for the camera pepper in any new section, and keep it clear of copy on mobile.",
+      "Do draw structure with 1px currentColor hairlines and outlines so components survive paper, red and ink grounds.",
+      "Do keep reduced motion honest: crossfades instead of circles, no pin, no pulse."
+    ],
+    "donts": [
+      "Don't add a colour outside paper, studio red and pure black, and don't soften the ink to an off-black.",
+      "Don't use cards, drop shadows or colour gradients to separate content.",
+      "Don't introduce a second typeface, italics or letter-spaced uppercase labels.",
+      "Don't put a small label or kicker above a section heading; headings stand alone.",
+      "Don't use stacked fade-up reveals as the default section entrance; text rises from line masks and surfaces grow as circles.",
+      "Don't use illustration, icons or stock imagery; the pepper sequences are the only pictures."
+    ]
+  }
+}
